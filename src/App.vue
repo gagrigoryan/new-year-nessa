@@ -1,60 +1,76 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
+  <v-app
+    class="app"
+  >
+    <div class="video">
+      <div class="video__wrapper" />
+      <video
+          src="@/assets/videos/video1.mp4"
+          type="video/mp4"
+          id="video"
+          playsinline loop muted autoplay
       >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <HelloWorld/>
-    </v-main>
+      </video>
+    </div>
+    <div class="profile">
+      <profile-component />
+    </div>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import ProfileComponent from "@/components/ProfileComponent";
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    ProfileComponent
   },
 
   data: () => ({
     //
   }),
+  mounted() {
+  },
+  methods: {
+  }
 };
 </script>
+
+<style lang="sass">
+.video
+  width: 100%
+  height: 100vh
+  position: absolute
+  overflow: hidden
+  top: 0
+  left: 0
+  &__wrapper
+    width: 100%
+    height: 100%
+    background-color: #000
+    opacity: .6
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 2
+  video
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    min-width: 100%
+    min-height: 100%
+    height: 100vh
+    width: 100%
+    object-fit: cover
+    transition: all .4s ease
+
+.profile
+  z-index: 5
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+</style>
