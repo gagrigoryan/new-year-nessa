@@ -1,9 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Main from "@/views/Main";
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/',
+    name: 'Main',
+    component: Main
+  },
+  {
+    path: '/quest/:id',
+    name: 'Quest',
+    component: () => import('../views/Quest')
+  },
 ]
 
 const router = new VueRouter({
