@@ -63,7 +63,8 @@
 </template>
 
 <script>
-import {TimelineLite, Cubic} from "gsap";
+import { TimelineLite, Cubic, gsap, CSSPlugin } from 'gsap/all'
+gsap.registerPlugin(CSSPlugin)
 
 export default {
   name: "ProfileComponent",

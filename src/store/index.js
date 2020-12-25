@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+        fetchUrl: "https://nessav-df813-default-rtdb.firebaseio.com/",
         questionNumber: 0,
         asks: {
             1: {
@@ -18,6 +19,30 @@ export default new Vuex.Store({
             },
             3: {
                 question: "Какие конфеты ты любишь?",
+                background: require('@/assets/img/quest/first.jpg'),
+                answer: '',
+                activeBtn: false
+            },
+            4: {
+                question: "Какой твой любимый фильм?",
+                background: require('@/assets/img/quest/first.jpg'),
+                answer: '',
+                activeBtn: false
+            },
+            5: {
+                question: "Какую книгу бы прочитала, но нет времени?",
+                background: require('@/assets/img/quest/first.jpg'),
+                answer: '',
+                activeBtn: false
+            },
+            6: {
+                question: "Какое твое любимое блюдо?",
+                background: require('@/assets/img/quest/first.jpg'),
+                answer: '',
+                activeBtn: false
+            },
+            7: {
+                question: "Укажи день, когда ты будешь свободна!",
                 background: require('@/assets/img/quest/first.jpg'),
                 answer: '',
                 activeBtn: false
@@ -42,6 +67,10 @@ export default new Vuex.Store({
 
         getAsks (state) {
             return state.asks
+        },
+
+        getFetchUrl (state) {
+            return state.fetchUrl
         }
     },
 })
